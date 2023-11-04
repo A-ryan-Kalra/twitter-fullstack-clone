@@ -1,12 +1,12 @@
 import bcrypt, { compare } from "bcrypt";
-import nextAuth from "next-auth";
+import nextAuth, { AuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
 import prisma from "@/lib/prismadb";
 import NextAuth from "next-auth/next";
 
-export default NextAuth({
+export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     Credentials({
@@ -48,4 +48,4 @@ export default NextAuth({
     secret: process.env.NEXTAUTH_JWT_SECRET,
   },
   secret: process.env.NEXTAUTH_SECRET,
-});
+};

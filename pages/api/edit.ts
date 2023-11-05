@@ -12,13 +12,8 @@ export default async function handler(
 
   try {
     const { name, username, bio, coverImage, profileImage } = req.body;
-    console.log(req.body);
-    // console.log("olaa11");
 
     const { currentUser } = await serverAuth(req, res);
-
-    console.log(currentUser);
-    console.log("olaa");
 
     if (!name || !username) {
       throw new Error("Missing fields");

@@ -12,7 +12,6 @@ interface AvatarProps {
 function Avatar({ userId, hasBorder, isLarge }: AvatarProps) {
   const { data: fetchUser } = useUser(userId);
 
-  console.log(fetchUser);
   const router = useRouter();
 
   const onClick = useCallback(

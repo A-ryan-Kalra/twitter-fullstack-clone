@@ -46,7 +46,7 @@ function ImageUpload({ label, onChange, disabled, value }: ImageUploadProps) {
     //   "image/jpg": [],
     // },
   });
-  //   console.log(base64);
+
   return (
     <div
       {...getRootProps({

@@ -25,10 +25,7 @@ export default async function handler(
         },
       },
     });
-    // console.log("wowowo");
-    // console.log(userId);
-    // console.log(existingUser);
-    // console.log("wowowo");
+
     return res.status(200).json({ ...existingUser, followersCount });
   } catch (error) {
     console.log(error);

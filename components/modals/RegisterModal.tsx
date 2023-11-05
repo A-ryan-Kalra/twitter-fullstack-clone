@@ -26,7 +26,6 @@ function RegisterModal() {
         name,
         password,
       });
-      console.log(password);
 
       await signIn("credentials", {
         email,

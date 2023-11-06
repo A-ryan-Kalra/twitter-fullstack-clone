@@ -28,9 +28,9 @@ function Button({
       } ${
         secondary
           ? "bg-white text-black border-black"
-          : "bg-sky-500 text-white border-sky-500"
+          : "bg-sky-500 p-2 text-white border-sky-500"
       }${large ? "text-xl px-5 py-3" : "text-md px-4 py-2"}${
-        outLine ? "bg-transparent border-white text-white" : ""
+        outLine ? "bg-transparent  border-white text-white" : ""
       }`}
     >
       {label}

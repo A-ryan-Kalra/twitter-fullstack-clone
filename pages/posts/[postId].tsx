@@ -1,5 +1,6 @@
 import Form from "@/components/Form";
 import Header from "@/components/layout/Header";
+import CommentFeed from "@/components/posts/CommentFeed";
 import PostItem from "@/components/posts/PostItem";
 import usePost from "@/hooks/usePost";
 import { useRouter } from "next/router";
@@ -12,7 +13,7 @@ function PostView() {
   const { data: fetchedPost, isLoading } = usePost(postId as string);
 
   console.log(fetchedPost);
-  console.log(postId);
+  // console.log(postId);
 
   if (isLoading || !fetchedPost) {
     return (
@@ -30,6 +31,7 @@ function PostView() {
         isComment
         placeholder="Tweet your reply"
       />
+      <CommentFeed comments={fetchedPost?.comments} />
     </>
   );
 }

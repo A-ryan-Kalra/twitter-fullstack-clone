@@ -8,6 +8,9 @@ interface PostFeedProps {
 
 function PostFeed({ userId }: PostFeedProps) {
   const { data: posts = [] } = usePosts(userId);
+  // console.log("oooo");
+  // console.log(userId);
+  // console.log("oooo");
 
   return (
     <>

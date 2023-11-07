@@ -23,12 +23,15 @@ function Form({ placeholder, isComment, postId }: FormProps) {
 
   const [body, setBody] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+  console.log(isComment);
+  console.log(body);
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
 
-      await axios.post("/api/posts", { body });
+      const url = isComment ? `/api/comments?postId=${postId}` : "/api/posts";
+
+      await axios.post(url, { body });
       toast.success("Tweet Created");
 
       setBody("");
@@ -39,7 +42,7 @@ function Form({ placeholder, isComment, postId }: FormProps) {
     } finally {
       setIsLoading(false);
     }
-  }, [body, mutatePosts]);
+  }, [body, mutatePosts, isComment, postId]);
 
   return (
     <div className="border-b-[1px] border-neutral-800 px-5 py-2">

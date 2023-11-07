@@ -7,7 +7,7 @@ interface CommentItemProps {
   data: Record<string, any>;
 }
 
-function CommentItem({ data }: CommentItemProps) {
+function CommentItem({ data = {} }: CommentItemProps) {
   const router = useRouter();
   // console.log(data);
   const goToUser = useCallback(
@@ -24,7 +24,7 @@ function CommentItem({ data }: CommentItemProps) {
       return null;
     }
     return formatDistanceToNowStrict(new Date(data.createdAt));
-  }, [data?.createdAt]);
+  }, [data.createdAt]);
 
   return (
     <div className="border-b-[1px] border-neutral-800 p-5 cursor-pointer hover:bg-neutral-900 transition">

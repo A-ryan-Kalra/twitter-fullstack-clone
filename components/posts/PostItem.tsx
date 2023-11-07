@@ -18,7 +18,7 @@ function PostItem({ data, userId }: PostItemProps) {
   // console.log(userId);
 
   const { hasLiked, toggleLike } = useLike({
-    postId: data.id as string,
+    postId: data.id,
     userId,
   });
 

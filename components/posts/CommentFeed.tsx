@@ -5,11 +5,11 @@ interface CommentFeedProps {
   comments?: Record<string, any>[];
 }
 
-function CommentFeed({ comments }: CommentFeedProps) {
+function CommentFeed({ comments = [] }: CommentFeedProps) {
   return (
     <>
-      {comments?.map((comment, index: number) => (
-        <CommentItem key={index} data={comment} />
+      {comments.map((comment, index: number) => (
+        <CommentItem key={comment.id} data={comment} />
       ))}
     </>
   );

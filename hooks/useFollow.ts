@@ -1,9 +1,10 @@
-import useCurrentUser from "./useCurrentUser";
-import useUser from "./useUser";
-import useLoginModal from "./useLoginModal";
-import { useCallback, useMemo } from "react";
-import toast from "react-hot-toast";
 import axios from "axios";
+import { useCallback, useMemo } from "react";
+import { toast } from "react-hot-toast";
+
+import useCurrentUser from "./useCurrentUser";
+import useLoginModal from "./useLoginModal";
+import useUser from "./useUser";
 
 const useFollow = (userId: string) => {
   const { data: currentUser, mutate: mutateCurrentUser } = useCurrentUser();
@@ -15,30 +16,29 @@ const useFollow = (userId: string) => {
     const list = currentUser?.followingIds || [];
 
     return list.includes(userId);
-  }, [userId, currentUser?.followingIds]);
+  }, [currentUser, userId]);
 
   const toggleFollow = useCallback(async () => {
     if (!currentUser) {
       return loginModal.onOpen();
     }
+
     try {
       let request;
+
       if (isFollowing) {
-        console.log("yo1");
         request = () => axios.delete("/api/follow", { data: { userId } });
       } else {
         request = () => axios.post("/api/follow", { userId });
-        console.log("yo2");
       }
-      await request();
 
-      mutateFetchedUser();
+      await request();
       mutateCurrentUser();
+      mutateFetchedUser();
 
       toast.success("Success");
     } catch (error) {
       toast.error("Something went wrong");
-      console.log(error);
     }
   }, [
     currentUser,

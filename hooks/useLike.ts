@@ -15,7 +15,7 @@ const useLike = ({ postId, userId }: { postId: string; userId?: string }) => {
 
   const hasLiked = useMemo(() => {
     const list = fetchedPost?.likeIds || [];
-    return list.includes(currentUser.id);
+    return list.includes(currentUser?.id);
   }, [currentUser?.id, fetchedPost?.likeIds]);
 
   const toggleLike = useCallback(async () => {

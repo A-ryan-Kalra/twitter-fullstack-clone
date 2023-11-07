@@ -23,8 +23,8 @@ function Form({ placeholder, isComment, postId }: FormProps) {
 
   const [body, setBody] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  console.log(isComment);
-  console.log(body);
+  // console.log(isComment);
+  // console.log(body);
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);

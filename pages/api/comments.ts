@@ -22,13 +22,9 @@ export default async function handler(
       data: {
         body,
         userId: currentUser.id,
-        postId: postId,
+        postId,
       },
     });
-
-    console.log("hello");
-    console.log(comment);
-    console.log("Bye");
 
     return res.status(200).json(comment);
   } catch (error) {

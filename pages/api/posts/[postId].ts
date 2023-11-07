@@ -16,7 +16,9 @@ export default async function handler(
       throw new Error("Invalid id");
     }
     const post = await prisma.post.findUnique({
-      where: { id: postId },
+      where: {
+        id: postId,
+      },
       include: {
         user: true,
         comments: {
